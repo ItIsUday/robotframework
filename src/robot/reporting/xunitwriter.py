@@ -47,7 +47,9 @@ class XUnitFileWriter(ResultVisitor):
             "failures": str(stats.failed),
             "skipped": str(stats.skipped),
             "time": format(suite.elapsed_time.total_seconds(), ".3f"),
-            "timestamp": suite.start_time.isoformat() if suite.start_time else None,
+            "timestamp": (
+                suite.start_time.astimezone().isoformat() if suite.start_time else None
+            ),
         }
         self._writer.start("testsuite", attrs)
 

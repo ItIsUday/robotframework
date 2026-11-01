@@ -150,7 +150,7 @@ Suite Stats Should Be
     Element Attribute Should Be       ${elem}    skipped     ${skipped}
     Element Attribute Should Match    ${elem}    time        ?.???
     Element Attribute Should Be       ${elem}    errors      0
-    Element Attribute Should Be       ${elem}    timestamp   ${start_time.isoformat()}
+    Element Attribute Should Be       ${elem}    timestamp   ${start_time.astimezone().isoformat()}
 
 Verify Outputs
     Stderr should be empty
